@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device - width, initial - scale=1.0">
+    <title>Для моего самого любимого мальчика в мире💓 </title>
+    <style>
+       *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a0b1f, #2d1d33); /*посмотри потот по цветам чтоб норм было*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            padding: 15px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border-radius: 40px;
+            padding: 30px 25px 35px;
+            max-width: 450px;
+            width: 100%;
+            border: 1px solid rgba(255, 200, 220, 0.15);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #ffe6f0;
+            text-shadow: 0 0 20px #ff69b4;
+            margin-bottom: 5px;
+        }
+
+        .sub {
+            font-size: 13px;
+            letter-spacing: 4px;
+            color: #f8c8dc;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px 0;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .slider {
+            width: 100%;
+            border-radius: 25px;
+            overflow: hidden;
+            aspect-ratio: 1/1;
+            background: #111;
+            margin-bottom: 12px;
+        }
+
+        .slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        .slider img.active{
+            display: block;
+            animation: fade 0.8s ease;
+        }
+
+        @keyframes fade {
+            0% {opacity: 0; }
+            100% {opacity: 1;}
+        }
+
+        .dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 10px 0 18px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            padding: 0;
+        }
+
+        .dot.active-dot {
+            background: #ff4d6d;
+            width: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px #ff4d6d;
+        }
+
+        .message {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #ecdce3;
+            margin-bottom: 20px;
+        }
+
+        .message span {
+            display: block;
+            margin-top: 10px;
+            font-style: italic;
+            color: #ffb6c1;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #ff4d6d, #ff1e4d);
+            border: none;
+            color: white;
+            padding: 14px 35px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 8px 30px rdga(255,30,77,0.4);
+        }
+
+        .btn:hover{
+            transform: scale(1.05);
+            box-shadow: 0 12px 40px rgba(255,30,77,0.7);
+    
+        }
+
+        .surprise{
+            display: none;
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(255, 105, 180, 0.2);
+
+            border-radius: 25px;
+            border: 1px dashed #ff69b4;
+        }
+
+        .surprise.show{
+            display: block;
+            animation: fade 0.5s ease;
+        }
+
+        .surprise p {
+            font-size: 26px;
+            color: #ffb6c1;
+            font-weight: bold;
+        }
+
+        .surprise .small{
+            font-size: 15px;
+            color: #ccc;
+            margin-top: 8px;
+        }
+
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -50px;
+            font-size: 20px;
+            opacity: 0.5;
+            animation: fly linear infinite;
+        }
+
+        @keyframes fly {
+            0% {transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% {opacity: 0.7;}
+            90% {opacity: 0.7;}
+            100% {transform: translateY(-110vh) rotate(720deg); opacity: 0;}
+        }
+
+        @media (max-width: 480px) {
+            h1{ font-size: 26px;}
+            .card {padding: 20px 15px;}
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="heartsBg"></div>
+    <div class="card">
+
+       <h1>Люблю тебя безумно❤️</h1>
+        <div class="sub">С днем рождения, любимый😘</div>
+
+        <div class="slider" id="slider">
+            <img src="https://i.ibb.co/6cPT2t11/IMG-9688.avif" alt="Фото 1" class="active">
+            <img src="https://i.ibb.co/nsQMB1RN/IMG-9686.avif" alt="Фото 2">
+            <img src="https://i.ibb.co/tPnVQMsM/IMG-9881.avif" alt="Фото 3">
+            <img src="https://i.ibb.co/wtdSnHn/IMG-9649.avif" alt="Фото 4">
+            <img src="https://i.ibb.co/j9w13Kph/IMG-9122.avif" alt="Фото 5">
+            <img src="https://i.ibb.co/bMDMg9Gb/IMG-9164.avif" alt="Фото 6">
+            <img src="https://i.ibb.co/zTjHrQqT/IMG-9177.avif" alt="Фото 7">
+            <img src="https://i.ibb.co/bg9CGJgK/IMG-9236.avif" alt="Фото 8">
+            <img src="https://i.ibb.co/23sKQ9Nq/IMG-9246.avif" alt="Фото 9">
+            <img src="https://i.ibb.co/jPNYnWpL/IMG-8750.jpg" alt="Фото 10">
+            <img src="https://i.ibb.co/230NwVhX/IMG-8528.avif" alt="Фото 11">
+            <img src="https://i.ibb.co/hxZHcVrs/IMG-0453.avif" alt="Фото 12">
+            <img src="https://i.ibb.co/DfV1QyDW/IMG-0363.avif" alt="Фото 13">
+            <img src="https://i.ibb.co/dsMRh7qm/IMG-0212.avif" alt="Фото 14">
+            <img src="https://i.ibb.co/qL6Grv6D/IMG-0114.avif" alt="Фото 15">
+        </div>
+
+        <div class="dots" id="dotsConteiner"></div>
+
+        <div class="message">
+            Ты — самое лучшее, что было в моей жизни.
+            <span>
+                Спасибо, что ты есть у меня. <br>
+                Я люблю тебя больше всего на свете. ❤️
+            </span>
+        </div>
+
+       <button class="btn" id="surpriseBtn">✨ Сюрприз для тебя ✨</button>
+
+        <div class="surprise" id="surpriseBlock">
+            <p>Ты — моё счастье!</p>
+            <div class="small">
+                Я хочу быть с тобой всегда. <br>
+                Ты делаешь меня самой счастливой. <br><br>
+                ❤️ Твоя навсегда ❤️
+            </div>
+        </div>
+    <script>
+        const slider = document.getElementById('slider');
+        const images = slider.querySelectorAll('img');
+        const dotsConteiner = document.getElementById('dotsConteiner');
+        let current = 0;
+        let timer;
+
+
+        images.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active-dot');
+            dot.dataset.index = i;
+            dot.addEventListener('click', () => goTo(i));
+            dotsConteiner.appendChild(dot);
+        });
+
+        const dots = dotsConteiner.querySelectorAll('.dot');
+
+        function goTo(index){
+            images.forEach(img => img.classList.remove('active'));
+            images[index].classList.add('active');
+            dots.forEach( d=>d.classList.remove('active-dot'));
+            dots[index].classList.add('active-dot');
+            current = index;
+        }
+
+        function next(){
+            goTo((current + 1) % images.length);
+        }
+
+        function startAuto(){
+            timer = setInterval(next, 3500);
+        }
+
+        function stopAuto(){
+            clearInterval(timer);
+        }
+
+        startAuto();
+
+        slider.addEventListener('mouseenter', stopAuto);
+        slider.addEventListener('mouseleave', startAuto);
+        slider.addEventListener('touchstart', stopAuto);
+        slider.addEventListener('touchend', startAuto);
+
+        const btn = document.getElementById('surpriseBtn');
+        const surprise = document.getElementById('surpriseBlock');
+
+        btn.addEventListener('click', function() {
+            surprise.classList.toggle('show');
+            btn.textContent = surprise.classList.contains('show')
+                ? '🙈 Спрятать'
+                : '✨ Сюрприз для тебя ✨';
+        });
+
+
+        const bg = document.getElementById('heartsBg');
+        const symbols = ['❤️', '💖', '💗', '💕', '💓', '✨'];
+
+        function createHeart() {
+            const el = document.createElement('div');
+            el.classList.add('heart');
+            el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+            el.style.fontSize = (Math.random() * 18 + 16) + 'px';
+            el.style.left = Math.random() * 100 + '%';
+            el.style.animationDuration = (Math.random() * 10 + 8) + 's';
+            el.style.animationDelay = (Math.random() * 3) + 's';
+            bg.appendChild(el);
+            setTimeout(() => { if (el.parentNode) el.remove(); }, 15000);
+        }
+
+        for (let i = 0; i < 20; i++) setTimeout(createHeart, i * 120);
+        setInterval(createHeart, 300);
+
+        console.log('%c❤️ С Днём Рождения, Любимый! ❤️', 'font-size: 20px; color: #ff69b4; font-weight: bold;');
+        console.log('%cЯ тебя очень люблю!', 'font-size: 16px; color: #ffb6c1;');
+    </script>
+</body>
+</html>
